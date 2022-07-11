@@ -20,4 +20,13 @@ class CaledarDataViewModel: ObservableObject {
             calanderData = []
         }
     }
+    
+    func save() {
+        do {
+            let data = try JSONEncoder().encode(calanderData)
+            try data.write(to: savePath)
+        } catch {
+            print("there was an error saving the data")
+        }
+    }
 }

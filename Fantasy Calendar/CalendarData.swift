@@ -21,6 +21,8 @@ struct Calendar: Codable, Identifiable {
         self.events = events
         self.dateRanges = dateRanges
     }
+    
+    static let example: [Calendar] = Bundle.main.decode("ExampleData.json")
 }
 
 struct Event: Codable, Identifiable {
@@ -29,6 +31,8 @@ struct Event: Codable, Identifiable {
     var date: Date
     var discription: String
     var tags: [String]
+    
+    static let example = Event(id: UUID(), name: "Test Event", date: Date(), discription: "This is test data!", tags: ["test", "example", "fun"])
 }
 
 struct DateRange: Codable, Identifiable {
@@ -38,4 +42,6 @@ struct DateRange: Codable, Identifiable {
     var dateStop: Date
     var discription: String
     var tags: [String]
+    
+    static let example = DateRange(id: UUID(), name: "Test Event", dateStart: Date(), dateStop: Date(), discription: "This is test data!", tags: ["test", "example", "fun"])
 }

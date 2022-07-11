@@ -1,0 +1,60 @@
+[
+    {
+      "id": "DA9CDDDF-4B83-4799-8E4D-73D3529032C8",
+      "tags": [
+        "test",
+        "example",
+        "fun"
+      ],
+      "name": "Example Calandar",
+      "events": [
+        {
+          "discription": "This is test data!",
+          "id": "474952CF-CCB0-42F0-8B5A-0533DC3E5473",
+          "tags": [
+            "test",
+            "example",
+            "fun"
+          ],
+          "name": "Test Event 1",
+          "date": 679263651.845272
+        },
+        {
+          "discription": "This is test data!",
+          "id": "474952CF-CCB0-42F0-8B5A-0533DC3E5473",
+          "tags": [
+            "test",
+            "example",
+            "fun"
+          ],
+          "name": "Test Event 2",
+          "date": 679263651.845272
+        },
+        {
+          "discription": "This is test data!",
+          "id": "474952CF-CCB0-42F0-8B5A-0533DC3E5473",
+          "tags": [
+            "test",
+            "example",
+            "fun"
+          ],
+          "name": "Test Event 3",
+          "date": 679269358.45882106
+        }
+      ],
+      "dateRanges": [
+        {
+          "discription": "This is test data!",
+          "id": "2C09B1A7-5D51-411A-B419-4A08F0BA4A65",
+          "tags": [
+            "test",
+            "example",
+            "fun"
+          ],
+          "dateStart": 679263651.845284,
+          "name": "Test Event",
+          "dateStop": 679269358.45882106
+        }
+      ]
+    }
+]

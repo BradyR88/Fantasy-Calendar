@@ -14,6 +14,8 @@
 		73C7FBEC287CA20400E401B2 /* CalendarData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7FBEB287CA20400E401B2 /* CalendarData.swift */; };
 		73C7FBEE287CA5D400E401B2 /* CalendarData-ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7FBED287CA5D400E401B2 /* CalendarData-ViewModel.swift */; };
 		73C7FBF0287CA78800E401B2 /* FileManager-DocumentDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7FBEF287CA78800E401B2 /* FileManager-DocumentDirectory.swift */; };
+		73C7FBF2287CD37D00E401B2 /* ExampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = 73C7FBF1287CD37D00E401B2 /* ExampleData.json */; };
+		73C7FBF4287CD54C00E401B2 /* Bundle-Decodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7FBF3287CD54C00E401B2 /* Bundle-Decodable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		73C7FBEB287CA20400E401B2 /* CalendarData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarData.swift; sourceTree = "<group>"; };
 		73C7FBED287CA5D400E401B2 /* CalendarData-ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarData-ViewModel.swift"; sourceTree = "<group>"; };
 		73C7FBEF287CA78800E401B2 /* FileManager-DocumentDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager-DocumentDirectory.swift"; sourceTree = "<group>"; };
+		73C7FBF1287CD37D00E401B2 /* ExampleData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = ExampleData.json; sourceTree = "<group>"; };
+		73C7FBF3287CD54C00E401B2 /* Bundle-Decodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle-Decodable.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,8 @@
 				73C7FBED287CA5D400E401B2 /* CalendarData-ViewModel.swift */,
 				73C7FBEB287CA20400E401B2 /* CalendarData.swift */,
 				73C7FBEF287CA78800E401B2 /* FileManager-DocumentDirectory.swift */,
+				73C7FBF3287CD54C00E401B2 /* Bundle-Decodable.swift */,
+				73C7FBF1287CD37D00E401B2 /* ExampleData.json */,
 			);
 			path = "Fantasy Calendar";
 			sourceTree = "<group>";
@@ -136,6 +142,7 @@
 			files = (
 				73C7FBE5287CA1BE00E401B2 /* Preview Assets.xcassets in Resources */,
 				73C7FBE2287CA1BE00E401B2 /* Assets.xcassets in Resources */,
+				73C7FBF2287CD37D00E401B2 /* ExampleData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +158,7 @@
 				73C7FBF0287CA78800E401B2 /* FileManager-DocumentDirectory.swift in Sources */,
 				73C7FBEC287CA20400E401B2 /* CalendarData.swift in Sources */,
 				73C7FBDE287CA1BE00E401B2 /* Fantasy_CalendarApp.swift in Sources */,
+				73C7FBF4287CD54C00E401B2 /* Bundle-Decodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
