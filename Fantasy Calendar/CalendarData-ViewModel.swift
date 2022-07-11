@@ -7,8 +7,8 @@
 
 import Foundation
 
-class CaledarDataViewModel: ObservableObject {
-    @Published var calanderData: [Calendar] = []
+@MainActor class CaledarDataViewModel: ObservableObject {
+    @Published private(set) var calanderData: [Calendar] = []
     
     private let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedCalender")
     
@@ -28,5 +28,9 @@ class CaledarDataViewModel: ObservableObject {
         } catch {
             print("there was an error saving the data")
         }
+    }
+    
+    func loadPreviewData() {
+        calanderData = Calendar.example
     }
 }
