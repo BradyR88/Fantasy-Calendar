@@ -16,21 +16,21 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            List(filteredCalandars) { calandar in
+            List(filteredCalandars) { calendar in
                 
                 Section {
                     NavigationLink {
-                        Text(calandar.name)
+                        Text(calendar.name)
                     } label: {
                         VStack(alignment: .leading) {
-                            Text(calandar.name)
+                            Text(calendar.name)
                                 .font(.title)
                             
-                            if calandar.tags.isEmpty {
+                            if calendar.tags.isEmpty {
                                 Text("No Tags")
                                     .font(.caption)
                             } else {
-                                Text(calandar.tags.joined(separator: ", "))
+                                Text(calendar.tags.joined(separator: ", "))
                                     .font(.caption)
                             }
                         }
@@ -43,15 +43,15 @@ struct ContentView: View {
                     } label: {
                         HStack {
                             Image(systemName: "calendar.badge.plus")
-                            Text("Add new calandar")
+                            Text("Add new calendar")
                         }
                         .foregroundColor(.primary)
                     }
                 }
             }
             .listStyle(.insetGrouped)
-            .navigationTitle("Calandar List")
-            .searchable(text: $searchText, prompt: "Search for a calandar")
+            .navigationTitle("Calendar List")
+            .searchable(text: $searchText, prompt: "Search for a calendar")
             .toolbar {
                 Button {
                     isMackingNewCalandar = true
@@ -61,13 +61,13 @@ struct ContentView: View {
                 }
 
             }
-            .alert("New Calandar", isPresented: $isMackingNewCalandar, actions: {
-                        TextField("Calandar name", text: $newCalandarName)
+            .alert("New Calendar", isPresented: $isMackingNewCalandar, actions: {
+                        TextField("Calendar name", text: $newCalandarName)
                         
                         Button("Create", action: {viewModel.createNewCalendar(name: newCalandarName)})
                         Button("Cancel", role: .cancel, action: {})
                     }, message: {
-                        Text("Please enter the name of your new calandar.")
+                        Text("Please enter the name of your new calendar.")
                     })
         }
     }
@@ -76,9 +76,9 @@ struct ContentView: View {
         var filter: [Calendar] = []
         
         if searchText.isEmpty {
-            filter = viewModel.calanderData
+            filter = viewModel.calenderData
         } else {
-            filter = viewModel.calanderData.filter { $0.name.localizedCaseInsensitiveContains(searchText)}
+            filter = viewModel.calenderData.filter { $0.name.localizedCaseInsensitiveContains(searchText)}
         }
         
         return filter
