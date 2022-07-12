@@ -11,32 +11,64 @@ struct ContentView: View {
     @EnvironmentObject var viewModel: CaledarDataViewModel
     
     @State var searchText = ""
+    @State var isMackingNewCalandar = false
+    @State var newCalandarName = ""
     
     var body: some View {
         NavigationView {
             List(filteredCalandars) { calandar in
-                NavigationLink {
-                    Text(calandar.name)
-                } label: {
-                    VStack(alignment: .leading) {
+                
+                Section {
+                    NavigationLink {
                         Text(calandar.name)
-                            .font(.title)
-                        Text(calandar.tags.joined(separator: ", "))
-                            .font(.caption)
+                    } label: {
+                        VStack(alignment: .leading) {
+                            Text(calandar.name)
+                                .font(.title)
+                            
+                            if calandar.tags.isEmpty {
+                                Text("No Tags")
+                                    .font(.caption)
+                            } else {
+                                Text(calandar.tags.joined(separator: ", "))
+                                    .font(.caption)
+                            }
+                        }
+                    }
+                }
+                
+                Section {
+                    Button {
+                        //
+                    } label: {
+                        HStack {
+                            Image(systemName: "calendar.badge.plus")
+                            Text("Add new calandar")
+                        }
+                        .foregroundColor(.primary)
                     }
                 }
             }
+            .listStyle(.insetGrouped)
             .navigationTitle("Calandar List")
-            .searchable(text: $searchText, prompt: "Search for a calandaer")
+            .searchable(text: $searchText, prompt: "Search for a calandar")
             .toolbar {
                 Button {
-                    // add new calandar
+                    isMackingNewCalandar = true
                 } label: {
                     Image(systemName: "calendar.badge.plus")
                         .foregroundColor(.primary)
                 }
 
             }
+            .alert("New Calandar", isPresented: $isMackingNewCalandar, actions: {
+                        TextField("Calandar name", text: $newCalandarName)
+                        
+                        Button("Create", action: {viewModel.createNewCalendar(name: newCalandarName)})
+                        Button("Cancel", role: .cancel, action: {})
+                    }, message: {
+                        Text("Please enter the name of your new calandar.")
+                    })
         }
     }
     

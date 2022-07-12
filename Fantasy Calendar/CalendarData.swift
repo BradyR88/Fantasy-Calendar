@@ -45,3 +45,18 @@ struct DateRange: Codable, Identifiable {
     
     static let example = DateRange(id: UUID(), name: "Test Event", dateStart: Date(), dateStop: Date(), discription: "This is test data!", tags: ["test", "example", "fun"])
 }
+
+extension Calendar {
+    init(name: String) {
+        id = UUID()
+        self.tags = []
+        self.events = []
+        self.dateRanges = []
+        
+        if name.isEmpty {
+            self.name = "New Calandar"
+        } else {
+            self.name = name
+        }
+    }
+}

@@ -30,6 +30,12 @@ import Foundation
         }
     }
     
+    func createNewCalendar(name: String) {
+        let new = Calendar(name: name)
+        
+        calanderData.append(new)
+    }
+    
     func loadPreviewData() {
         calanderData = Calendar.example
     }
