@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		739A7451287DFD71003AB6D8 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739A7450287DFD71003AB6D8 /* CalendarView.swift */; };
 		73C7FBDE287CA1BE00E401B2 /* Fantasy_CalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7FBDD287CA1BE00E401B2 /* Fantasy_CalendarApp.swift */; };
 		73C7FBE0287CA1BE00E401B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7FBDF287CA1BE00E401B2 /* ContentView.swift */; };
 		73C7FBE2287CA1BE00E401B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 73C7FBE1287CA1BE00E401B2 /* Assets.xcassets */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		739A7450287DFD71003AB6D8 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		73C7FBDA287CA1BE00E401B2 /* Fantasy Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fantasy Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C7FBDD287CA1BE00E401B2 /* Fantasy_CalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fantasy_CalendarApp.swift; sourceTree = "<group>"; };
 		73C7FBDF287CA1BE00E401B2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +65,7 @@
 			children = (
 				73C7FBDD287CA1BE00E401B2 /* Fantasy_CalendarApp.swift */,
 				73C7FBDF287CA1BE00E401B2 /* ContentView.swift */,
+				739A7450287DFD71003AB6D8 /* CalendarView.swift */,
 				73C7FBE1287CA1BE00E401B2 /* Assets.xcassets */,
 				73C7FBE3287CA1BE00E401B2 /* Preview Content */,
 				73C7FBED287CA5D400E401B2 /* CalendarData-ViewModel.swift */,
@@ -154,6 +157,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				73C7FBEE287CA5D400E401B2 /* CalendarData-ViewModel.swift in Sources */,
+				739A7451287DFD71003AB6D8 /* CalendarView.swift in Sources */,
 				73C7FBE0287CA1BE00E401B2 /* ContentView.swift in Sources */,
 				73C7FBF0287CA78800E401B2 /* FileManager-DocumentDirectory.swift in Sources */,
 				73C7FBEC287CA20400E401B2 /* CalendarData.swift in Sources */,

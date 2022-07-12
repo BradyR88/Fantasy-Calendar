@@ -30,6 +30,12 @@ import Foundation
         }
     }
     
+    func deleteCalendar(at offsets: IndexSet?) {
+        if offsets != nil {
+            calenderData.remove(atOffsets: offsets!)
+        }
+    }
+    
     func createNewCalendar(name: String) {
         let new = Calendar(name: name)
         
