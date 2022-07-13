@@ -9,11 +9,34 @@ import SwiftUI
 
 struct CalendarView: View {
     @EnvironmentObject var viewModel: CaledarDataViewModel
-    @State var calendar: Calendar
+    
+    @State private var editMode = false
     
     var body: some View {
-        Text(calendar.name)
-            .padding()
+        VStack {
+            ZStack {
+                Color.blue
+                    .frame(height: 400)
+                Text("This is a cool time line!!")
+            }
+            
+            
+            HStack {
+                Spacer()
+                
+                Image(systemName: "pencil.circle")
+                    .font(.title)
+                    .padding(.trailing, 5)
+                    .accessibilityRemoveTraits(.isImage)
+                    .accessibilityAddTraits(.isButton)
+                    .accessibilityHint("activate edit mode")
+                    .onTapGesture { editMode = true }
+            }
+            
+            Spacer()
+        }
+        .navigationTitle(viewModel.selectedCalendar?.name ?? "No Name")
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -22,6 +45,10 @@ struct CalendarView_Previews: PreviewProvider {
         let viewModel = CaledarDataViewModel()
         viewModel.loadPreviewData()
         
-        return CalendarView(calendar: Calendar.example[0]).environmentObject(viewModel)
+        return NavigationView {
+            CalendarView().environmentObject(viewModel)
+                .navigationTitle("Example")
+                .navigationBarTitleDisplayMode(.inline)
+        }
     }
 }

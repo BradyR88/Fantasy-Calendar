@@ -9,6 +9,7 @@ import Foundation
 
 @MainActor class CaledarDataViewModel: ObservableObject {
     @Published private(set) var calenderData: [Calendar] = []
+    @Published private(set) var selectedCalendar: Calendar? = nil
     
     private let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedCalender")
     
@@ -44,5 +45,10 @@ import Foundation
     
     func loadPreviewData() {
         calenderData = Calendar.example
+        selectedCalendar = Calendar.example[0]
+    }
+    
+    func setCalendarTo(_ calendar: Calendar) {
+        selectedCalendar = calendar
     }
 }
