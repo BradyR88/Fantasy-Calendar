@@ -37,6 +37,7 @@ struct CalendarView: View {
         }
         .navigationTitle(viewModel.selectedCalendar?.name ?? "No Name")
         .navigationBarTitleDisplayMode(.inline)
+        .onDisappear { viewModel.deselectCalendar() }
     }
 }
 

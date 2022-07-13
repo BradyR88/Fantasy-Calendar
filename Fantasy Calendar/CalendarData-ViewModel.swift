@@ -8,9 +8,14 @@
 import Foundation
 
 @MainActor class CaledarDataViewModel: ObservableObject {
-    @Published private(set) var calenderData: [Calendar] = []
+    @Published private(set) var calenderData: [Calendar] = [] {
+        didSet {
+            save()
+        }
+    }
     @Published private(set) var selectedCalendar: Calendar? = nil
     
+    private(set) var navItemSelected: String? = UserDefaults.standard.string(forKey: "navItemSelected")
     private let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedCalender")
     
     func loadData() async {
@@ -50,5 +55,19 @@ import Foundation
     
     func setCalendarTo(_ calendar: Calendar) {
         selectedCalendar = calendar
+        navItemSelected = calendar.id.uuidString
+        UserDefaults.standard.set(navItemSelected, forKey: "navItemSelected")
+    }
+    
+    func deselectCalendar() {
+        selectedCalendar = nil
+        navItemSelected = nil
+        UserDefaults.standard.set(navItemSelected, forKey: "navItemSelected")
+    }
+    
+    func navToLast() {
+        selectedCalendar = calenderData.first(where: { calendar in
+            return calendar.id.uuidString == navItemSelected
+        })
     }
 }

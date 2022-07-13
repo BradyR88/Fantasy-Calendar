@@ -90,18 +90,18 @@ struct ContentView: View {
                 })
                 .alert("Delete this Calendar?", isPresented: $isDeleteAlert) {
                     Button("Delete") {
-                        viewModel.createNewCalendar(name: newCalandarName)
+                        viewModel.deleteCalendar(at: indexSetToDelete)
                         indexSetToDelete = nil
                     }
                     Button("Cancel", role: .cancel, action: {})
-                }
-                
+                } 
                 
                 NavigationLink(isActive: $isNavActive, destination: {CalendarView()}, label: {})
                     .hidden()
                     .accessibilityHidden(true)
             }
         }
+        .onAppear { setUp() }
     }
     
     var filteredCalandars: [Calendar] {
@@ -114,6 +114,12 @@ struct ContentView: View {
         }
         
         return filter
+    }
+    
+    func setUp() {
+        if viewModel.navItemSelected != nil {
+            isNavActive = true
+        }
     }
 }
 
