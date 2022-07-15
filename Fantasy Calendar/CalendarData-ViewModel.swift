@@ -63,7 +63,8 @@ import Foundation
     }
     
     func createNewCalendar(name: String) {
-        let new = Calendar(name: name)
+        var new = Calendar(name: name)
+        new.newEvent()
         
         calenderData.append(new)
     }
@@ -75,6 +76,12 @@ import Foundation
     func setCalendarTo(_ calendar: Calendar) {
         navItemSelected = calendar.id.uuidString
         UserDefaults.standard.set(navItemSelected, forKey: "navItemSelected")
+        
+        // set a resunabal defal event seletion
+        if selectedCalendar.events.first(where: { $0.id.uuidString == navEvent}) == nil {
+            navEvent = selectedCalendar.events.first?.id.uuidString
+        }
+        
     }
     
     func deselectCalendar() {
