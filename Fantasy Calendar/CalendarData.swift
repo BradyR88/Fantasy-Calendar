@@ -22,6 +22,10 @@ struct Calendar: Codable, Identifiable {
         self.dateRanges = dateRanges
     }
     
+    mutating func newEvent() {
+        self.events.append(Event(id: UUID(), name: "New Event", date: Date(), discription: "", tags: []))
+    }
+    
     static let example: [Calendar] = Bundle.main.decode("ExampleData.json")
 }
 

@@ -13,9 +13,28 @@ import Foundation
             save()
         }
     }
-    @Published private(set) var selectedCalendar: Calendar? = nil
+    private(set) var selectedCalendar: Calendar {
+        get {
+            return calenderData.first(where: { $0.id.uuidString == navItemSelected }) ?? Calendar.example[0]
+        }
+        set {
+            let index = calenderData.firstIndex(where: { $0.id.uuidString == navItemSelected })
+            
+            if index != nil {
+                calenderData[index!] = newValue
+            } else {
+                print("Index not found for selected calandar")
+            }
+        }
+    }
+    var selectedEvent: Event {
+        get {
+            return selectedCalendar.events.first(where: { $0.id.uuidString == navEvent}) ?? Event.example
+        }
+    }
     
     private(set) var navItemSelected: String? = UserDefaults.standard.string(forKey: "navItemSelected")
+    private(set) var navEvent: String? = UserDefaults.standard.string(forKey: "navEvent")
     private let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedCalender")
     
     func loadData() async {
@@ -50,24 +69,23 @@ import Foundation
     
     func loadPreviewData() {
         calenderData = Calendar.example
-        selectedCalendar = Calendar.example[0]
     }
     
     func setCalendarTo(_ calendar: Calendar) {
-        selectedCalendar = calendar
         navItemSelected = calendar.id.uuidString
         UserDefaults.standard.set(navItemSelected, forKey: "navItemSelected")
     }
     
     func deselectCalendar() {
-        selectedCalendar = nil
         navItemSelected = nil
         UserDefaults.standard.set(navItemSelected, forKey: "navItemSelected")
     }
     
-    func navToLast() {
-        selectedCalendar = calenderData.first(where: { calendar in
-            return calendar.id.uuidString == navItemSelected
-        })
+    func newEvent() {
+        selectedCalendar.newEvent()
+        let newID = selectedCalendar.events.last?.id.uuidString ?? nil
+        if newID != nil {
+            navEvent = newID
+        }
     }
 }
