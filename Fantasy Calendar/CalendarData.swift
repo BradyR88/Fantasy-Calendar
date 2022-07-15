@@ -23,7 +23,9 @@ struct Calendar: Codable, Identifiable {
     }
     
     mutating func newEvent() {
-        self.events.append(Event(id: UUID(), name: "New Event", date: Date(), discription: "", tags: []))
+        let num = Int.random(in: 1...100)
+        
+        self.events.append(Event(id: UUID(), name: "New Event", date: Date(), discription: "\(num)", tags: []))
     }
     
     static let example: [Calendar] = Bundle.main.decode("ExampleData.json")

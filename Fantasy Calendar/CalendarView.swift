@@ -21,9 +21,14 @@ struct CalendarView: View {
             List {
                 Section {
                     ForEach(viewModel.selectedCalendar.events) { event in
-                        Text(event.name)
+                        Button {
+                            viewModel.navToEvent(event)
+                        } label: {
+                            Text(event.name)
+                        }
+
                     }
-                    
+                    .onDelete { viewModel.deleteEvent(at: $0)}
                 }
                 
                 Button {
@@ -91,7 +96,7 @@ struct CalendarView: View {
     func addEvent() {
         editMode = true
         viewModel.newEvent()
-    }
+    }    
 }
 
 struct CalendarView_Previews: PreviewProvider {

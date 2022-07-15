@@ -13,6 +13,7 @@ import Foundation
             save()
         }
     }
+    
     private(set) var selectedCalendar: Calendar {
         get {
             return calenderData.first(where: { $0.id.uuidString == navItemSelected }) ?? Calendar.example[0]
@@ -34,7 +35,7 @@ import Foundation
     }
     
     private(set) var navItemSelected: String? = UserDefaults.standard.string(forKey: "navItemSelected")
-    private(set) var navEvent: String? = UserDefaults.standard.string(forKey: "navEvent")
+    @Published private(set) var navEvent: String? = UserDefaults.standard.string(forKey: "navEvent")
     private let savePath = FileManager.documentsDirectory.appendingPathComponent("SavedCalender")
     
     func loadData() async {
@@ -86,6 +87,18 @@ import Foundation
         let newID = selectedCalendar.events.last?.id.uuidString ?? nil
         if newID != nil {
             navEvent = newID
+            UserDefaults.standard.set(navEvent, forKey: "navEvent")
+        }
+    }
+    
+    func navToEvent(_ event: Event) {
+        navEvent = event.id.uuidString
+        UserDefaults.standard.set(navEvent, forKey: "navEvent")
+    }
+    
+    func deleteEvent(at offsets: IndexSet?) {
+        if offsets != nil {
+            selectedCalendar.events.remove(atOffsets: offsets!)
         }
     }
 }
