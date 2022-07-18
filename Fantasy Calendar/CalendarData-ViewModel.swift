@@ -32,6 +32,15 @@ import Foundation
         get {
             return selectedCalendar.events.first(where: { $0.id.uuidString == navEvent}) ?? Event.example
         }
+        set {
+            let index = selectedCalendar.events.firstIndex(where: { $0.id.uuidString == navEvent })
+            
+            if index != nil {
+                selectedCalendar.events[index!] = newValue
+            } else {
+                print("Index not found for selected event")
+            }
+        }
     }
     
     private(set) var navItemSelected: String? = UserDefaults.standard.string(forKey: "navItemSelected")
