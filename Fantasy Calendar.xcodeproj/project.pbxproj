@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		734904042882089F004ED255 /* EditEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 734904032882089F004ED255 /* EditEventView.swift */; };
+		738B04A02885E7A300F227DB /* ReadEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 738B049F2885E7A300F227DB /* ReadEventView.swift */; };
 		739A7451287DFD71003AB6D8 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 739A7450287DFD71003AB6D8 /* CalendarView.swift */; };
 		73C7FBDE287CA1BE00E401B2 /* Fantasy_CalendarApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7FBDD287CA1BE00E401B2 /* Fantasy_CalendarApp.swift */; };
 		73C7FBE0287CA1BE00E401B2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 73C7FBDF287CA1BE00E401B2 /* ContentView.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		734904032882089F004ED255 /* EditEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditEventView.swift; sourceTree = "<group>"; };
+		738B049F2885E7A300F227DB /* ReadEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadEventView.swift; sourceTree = "<group>"; };
 		739A7450287DFD71003AB6D8 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		73C7FBDA287CA1BE00E401B2 /* Fantasy Calendar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fantasy Calendar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		73C7FBDD287CA1BE00E401B2 /* Fantasy_CalendarApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fantasy_CalendarApp.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 				73C7FBDF287CA1BE00E401B2 /* ContentView.swift */,
 				739A7450287DFD71003AB6D8 /* CalendarView.swift */,
 				734904032882089F004ED255 /* EditEventView.swift */,
+				738B049F2885E7A300F227DB /* ReadEventView.swift */,
 				73C7FBE1287CA1BE00E401B2 /* Assets.xcassets */,
 				73C7FBE3287CA1BE00E401B2 /* Preview Content */,
 				73C7FBED287CA5D400E401B2 /* CalendarData-ViewModel.swift */,
@@ -163,6 +166,7 @@
 				734904042882089F004ED255 /* EditEventView.swift in Sources */,
 				739A7451287DFD71003AB6D8 /* CalendarView.swift in Sources */,
 				73C7FBE0287CA1BE00E401B2 /* ContentView.swift in Sources */,
+				738B04A02885E7A300F227DB /* ReadEventView.swift in Sources */,
 				73C7FBF0287CA78800E401B2 /* FileManager-DocumentDirectory.swift in Sources */,
 				73C7FBEC287CA20400E401B2 /* CalendarData.swift in Sources */,
 				73C7FBDE287CA1BE00E401B2 /* Fantasy_CalendarApp.swift in Sources */,

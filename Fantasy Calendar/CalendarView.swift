@@ -39,7 +39,9 @@ struct CalendarView: View {
                         Text("Add event")
                     }
                     .foregroundColor(.primary)
+                    .accessibilityHidden(true)
                 }
+                .accessibilityHint("Add event")
 
             }
             .listStyle(.insetGrouped)
@@ -48,39 +50,12 @@ struct CalendarView: View {
             
             // --------------- this is the split of the top and bottom section
             
-            VStack(alignment: .leading) {
-                HStack {
-                    Text(viewModel.selectedEvent.name)
-                        .font(.title)
-                    
-                    Spacer()
-                    
-                    Image(systemName: "pencil.circle")
-                        .font(.title)
-                        .foregroundColor(editMode ? .green : .primary)
-                        .padding(.trailing)
-                        .accessibilityRemoveTraits(.isImage)
-                        .accessibilityAddTraits(.isButton)
-                        .accessibilityHint("activate edit mode")
-                        .onTapGesture { editMode.toggle() }
-                }
-                .padding(.bottom, 2)
-                
-                if editMode {
-                    EditEventView()
-                } else {
-                    Text(viewModel.selectedEvent.date.formatted(date: .abbreviated, time: .omitted)) +
-                    Text("  \(viewModel.selectedCalendar.tags.joined(separator: ", "))")
-                    
-                    ScrollView(.vertical, showsIndicators: true) {
-                        Text(viewModel.selectedEvent.discription)
-                    }
-                }
+            if editMode {
+                EditEventView(editMode: $editMode)
+            } else {
+                ReadEventView(editMode: $editMode)
             }
-            .padding(.leading)
             
-            
-            Spacer()
         }
         .navigationTitle(viewModel.selectedCalendar.name)
         .navigationBarTitleDisplayMode(.inline)
