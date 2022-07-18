@@ -31,12 +31,16 @@ struct Calendar: Codable, Identifiable {
     static let example: [Calendar] = Bundle.main.decode("ExampleData.json")
 }
 
-struct Event: Codable, Identifiable {
+struct Event: Codable, Identifiable, Comparable {
     var id: UUID
     var name: String
     var date: Date
     var discription: String
     var tags: [String]
+    
+    static func < (lhs: Event, rhs: Event) -> Bool {
+        lhs.date > rhs.date
+    }
     
     static let example = Event(id: UUID(), name: "Test Event", date: Date(), discription: "This is test data!", tags: ["test", "example", "fun"])
 }
