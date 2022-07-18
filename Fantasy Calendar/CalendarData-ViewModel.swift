@@ -28,7 +28,7 @@ import Foundation
             }
         }
     }
-    var selectedEvent: Event {
+    private(set) var selectedEvent: Event {
         get {
             return selectedCalendar.events.first(where: { $0.id.uuidString == navEvent}) ?? Event.example
         }
@@ -116,5 +116,9 @@ import Foundation
         if offsets != nil {
             selectedCalendar.events.remove(atOffsets: offsets!)
         }
+    }
+    
+    func editSelectedEvent(_ newEvent: Event) {
+        selectedEvent = newEvent
     }
 }

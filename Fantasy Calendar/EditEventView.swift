@@ -31,7 +31,9 @@ struct EditEventView: View {
                 Spacer()
                 
                 Button {
-                    // save
+                    // seve changes
+                    viewModel.editSelectedEvent(event)
+                    
                     withAnimation {
                         editMode.toggle()
                     }
